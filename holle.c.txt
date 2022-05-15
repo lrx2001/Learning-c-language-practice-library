@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+    srand(time(0));
+    int numbre=rand()%100+1;
+    int counr=0;
+    int x;
+    do{scanf("%d",&x);
+    counr++;
+    if(x>numbre)
+    {
+        printf("你输入的数字大了");
+    }
+    if(x<numbre)
+    {
+        printf("你输入的数小了");
+    }
+    }while(x!=numbre);
+    printf("恭喜你，用%d次猜对了");
+    return 0;
+}
