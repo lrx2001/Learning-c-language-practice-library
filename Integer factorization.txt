@@ -1,0 +1,32 @@
+/*输入一个整数，输出结果是正序的
+样式如下：
+12345
+输出如下：
+1 2 3 4 5
+*/ 
+#include<stdio.h>
+int main()
+{
+	int x;
+	int conk=1;
+	scanf("%d",&x);
+	int t=x;
+	do{
+		t/=10;
+		conk*=10;
+//		printf("%d\n",conk);
+	}while(t>9);
+	while(x>0){
+		int d=x/conk;
+		printf("%d",d);
+		if(x>9)
+	{
+		printf(" ");
+	}
+		x%=conk;
+		conk/=10;
+		
+//		printf("d=%d,x=%d,conk=%d\n",d,x,conk);
+	}
+	return 0;
+}
