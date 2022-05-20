@@ -1,0 +1,23 @@
+#include<stdio.h>
+//在后面自己定义的函数需要注意到要给前面的声明，声明需要加“ ；”号，定义则不用。
+int cnt(int min,int max);  // 声明
+int main()
+{
+	
+	cnt(5,6);
+	return 0;
+}
+int cnt(int min,int max)  // 定义原型
+{
+	int cnt;
+	if(min>max)
+	{
+		cnt=min;
+	}
+	else
+	{
+		cnt=max;
+	}
+	printf("cnt=%d\n",cnt);
+	return cnt;
+ } 
