@@ -1,0 +1,40 @@
+/*整数分解输入12345分解变成输出1 2 3 4 5，接下来动起自己的手
+假设一下给我一个不确定是几位的整数，首先我先设想一下这个数是一个4位数，知道要第一个数是先除掉1000，然后知道是个千位数
+用编程来试一下
+1234/1000->1
+1234%1000->234
+1000/10->100
+234
+*/ 
+#include<stdio.h>
+int main()
+{
+	int x;
+	scanf("%d",&x);
+	int conk=1;
+	int t=x;
+	while(t>9)
+	{
+		t/=10;
+		conk*=10;	
+	}
+	
+	do{
+	
+	int d=x/conk;
+	printf("%d",d);
+	if(conk>9)
+	{
+		printf(" ");
+	}
+	x%=conk;
+	conk/=10;
+	//printf("x=%d,conk=%d,d=%d\n",x,conk,d);
+
+
+	
+	}while(conk>0);
+
+
+	return 0;
+}
