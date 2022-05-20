@@ -1,0 +1,35 @@
+void sum(int small,int big)
+{
+	int i;
+	int sum=0;
+	for(i=small;i<=big;i++)
+	{
+		sum+=i;
+	}
+	printf("%d和%d的和是%d\n",small,big,sum);
+}
+
+#include<stdio.h>
+int main()
+{
+
+
+
+	sum(1,10);
+	sum(20,30);
+	
+//	int i;
+//	int sum;
+//	for(i=0,sum=0;i<=10;i++)
+//	{
+//		sum+=i;
+//		printf("i=%d,sum%d\n",i,sum);
+//	}
+//	while(i<10)
+//	{
+//		sum=sum+i;
+//		i++;
+//		printf("i=%d,sum=%d\n",i,sum);
+//	}
+	return 0;
+}
