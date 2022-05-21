@@ -1,0 +1,117 @@
+#include<stdio.h>
+int main()
+{
+	const  int size=3;
+	int board[size][size];
+	int i,j;            //i 表示行 ，j 表示列 
+	int numOfX;
+	int numOfO;
+	int result = -1;  //-1:没人赢，1：X赢，0：0赢
+//                                                        读入矩阵
+	for(i=0;i<size;i++)                   //i=0;i<size,因为size=3，所以这个表示的是0到3
+	{
+		for(j=0;j<size;j++)               //j=0;j<size,因为size=3，所以这个表示的是0到3 
+		{
+			scanf("%d",&board[i][j]);    //输入0到3行和0到3列 
+		}
+	} 
+	//{                                                   行框架 
+		for(i=0;i<size&&result== -1;i++)   //(设定)i=0到3和 &&result== -1的情况下，i++ 
+	{
+			numOfO=numOfX=0;              // numOfO=numOfX=0;
+			for(j=0;j<size;j++)           // j是0到3 
+		{
+			if(board[i][j]==1)            //如果 board的行和列==1（有1） 
+			{
+				numOfX ++;                //numOfX ++;他会增加 
+			} 
+			else                          //不然 
+			{
+				numOfO ++;               //numOfO ++;他会增加 
+			}
+		} 
+			if(numOfO==size)             //如果 numOfO==3时 
+			{
+				result=0;                //result是0 
+			}
+			else if(numOfX==size)        //不然如果 numOfX==3时 
+			{
+				result=1;                //result是1
+			}
+	}
+//}                                                     行框架结束
+//{                                                     列框架 
+	if(result== -1)                     //如果 result== -1
+	{
+		for(j=0;j<size&&result== -1;j++)//(设定)j=0到3和 &&result== -1的情况下，j++ 
+		{
+			numOfO=numOfX=0;            // numOfO=numOfX=0;
+			for(i=0;i<size;i++)          // i是0到3 
+			{
+				if(board[i][j]==1)       //如果 board的行和列==1（有1） 
+				{
+					numOfX ++;           //numOfX ++;他会增加 
+				}
+				else                     //不然 
+				{
+					numOfO ++;           //numOfO ++;他会增加 
+				}
+			}
+		}
+				if(numOfO==size)          //如果 numOfO==3时 
+				{
+					result=0;             //result是0 
+				}
+				else                     //不然 
+				{
+					numOfO ++;            //numOfO ++;他会增加 
+				}
+				if(numOfO==size)        //如果 numOfO==3时 
+				{
+					result=0;             //result是0 
+				}else if(numOfX==size)    //不然如果 numOfX==3时 
+				{
+					result=1;              //result是1
+				}
+	}
+//}                                                    列框架结束 
+//{                                                    检查框架 
+	//检查行 
+		numOfO=numOfX=0;                  // numOfO=numOfX=0;
+		for(i=0;i<size;i++)               //i=0;i<size,因为size=3，所以这个表示的是0到3
+	{
+		if(board[i][i]==1)                //如果 board 行 和 行 ==1的情况下 
+		{
+			numOfX ++;                    //numOfX ++;他会增加 
+		}
+		else                             //不然 
+		{
+			numOfO ++;                   //numOfX ++;他会增加 
+		}
+		if(numOfO==size)                 //如果numofo==3时 
+		{
+			result=0;                    //result是0 
+		}
+		else if(numOfX==size)            //不然如果 numOfX==3时 
+		{
+			result=1;                    //result是1
+		}
+	}
+	//检查列 
+		numOfO=numOfX=0;                 // numOfO=numOfX=0;
+		for(i=0;i<size;i++)              //i=0;i<size,因为size=3，所以这个表示的是0到3
+	{
+		if(board[i][size-i-1]==1)        //如果board 行 和 3-行-1 ==1的情况下 
+		{
+			numOfX ++;                    //numOfX ++;他会增加
+		}
+		else                               //不然
+		{
+			numOfO ++;                    //numOfo  ++;他会增加
+		}
+	}
+//}                                                   检查结束 
+	printf("i=%d,j=%d,numOfX=%d,numOfO=%d,result=%d\n",i,j,numOfX,numOfO,result);
+     //printf("%d",result);
+	return 0;
+}
