@@ -1,0 +1,19 @@
+#include<stdio.h>
+struct one1{int x;int y;};                                            //做一个名称 
+struct one2{struct one1 pt1;struct one1 pt2;};                       //做一个类别 
+void shuchu(struct one2 k)                                          //做一个显示框 
+{
+	printf("<%d,%d>to<%d,%d>\n",k.pt1.x,k.pt1.y,k.pt2.x,k.pt2.y);
+}
+int main(int tiaojian1,char const *tiaojian2[] )
+{
+	int i;
+	struct one2 shuzi[]={                                        //给显示框定数值 
+		{{12,13},{23,24}},
+		 {{34,45},{56,67}}
+	};
+	for(i=0;i<2;i++)                                           //需要几个让显示框输出 
+	{
+	    shuchu(shuzi[i]);	
+	}
+}
